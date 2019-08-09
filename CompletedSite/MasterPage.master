@@ -1,0 +1,130 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuickSip Alcohol Delivery</title>
+    <link href="SocialMedia.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style type="text/css">
+	.navbar{
+		margin-top: 0px;
+	}
+</style>
+</head> 
+<body>
+
+    <nav role="navigation" class="navbar navbar-inverse">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../Default.aspx" class="navbar-brand" accesskey="h">Quick Sip</a>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Products<b class="caret"></b></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="../Liquor.aspx">Liquor</a></li>
+                        <li><a href="../Beer.aspx">Beer</a></li>
+                        <li><a href="../Wine.aspx">Wine</a></li>
+                        <li><a href="../Mixers.aspx">Mixers</a></li>
+                        <li><a href="../Garnishes.aspx">Garnishes</a></li>
+                          <li><a href="../Supplies.aspx">Supplies</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../Packages.aspx">Packages</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">About<b class="caret"></b></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="../About.aspx">About</a></li>
+                        <li><a href="../FAQ.aspx">FAQs</a></li>
+                        <li><a href="../Contact.aspx">Contact Us</a></li>
+                    </ul>
+                </li>
+                 <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Reports<b class="caret"></b></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="../CustomerOrdersReport.aspx">Customer's Order Report</a></li>
+                        <li><a href="../CustomerReport.aspx">Customer Report</a></li>
+                        <li><a href="../ItemsOrderedReport.aspx">Items Ordered Report</a></li>
+                        <li><a href="../ProductReport.aspx">Product Report</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+    <form id="form2" runat="server">
+        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                         <ul class="nav navbar-nav navbar-right">
+                <li><a href="../Cart.aspx">Cart</a></li>
+               </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                <li><a href="../docs/UserGuide.pdf">Help</a></li>
+ 
+            </ul>
+            </div>
+   
+    
+    </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                    
+                </div>
+            </div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+    </div>
+        
+
+        <div class="panel panel-primary">
+  <div class="panel-body text-center">
+      <div class="footer-social-icons">
+    <ul class="social-icons">
+        <li><a href="https://www.facebook.com/quicksips" class="social-icon"> <i class="fa fa-facebook" accesskey="f"></i></a></li>
+        <li><a href="https://twitter.com/quicksips2016" class="social-icon"> <i class="fa fa-twitter" accesskey="t"></i></a></li>
+        <li><a href="https://plus.google.com/" class="social-icon">   <i class="fa fa-google-plus" accesskey="g"></i></a></li>
+    </ul>
+</div></div>
+  <div class="panel-footer text-center">IS 4880 | No Shade November | <a href="../SiteMap.aspx">Site Map</a></div>
+</div>
+
+    </form>
+
+  
+</body>
+</html>
